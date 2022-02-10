@@ -14,9 +14,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 
 public class MyCrawler extends WebCrawler {
 	private static final Pattern filters = Pattern.compile(
-	        //".*(\\.(css|js|json|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v" +
-	        //"|rm|smil|wmv|swf|wma|zip|rar|gz))$");
-			".*(\\.(css|js|json))$");
+        ".*(\\.(css|js|json))$");
 	
 	public static MyCrawlStat myCrawlStat = new MyCrawlStat();
 
@@ -46,9 +44,9 @@ public class MyCrawler extends WebCrawler {
 		if (href.startsWith("https://www.usatoday.com")
 		    || href.startsWith("http://www.usatoday.com")
 		    || href.startsWith("www.usatoday.com")
-			|| href.startsWith("usatoday.com")
-			|| href.startsWith("https://usatoday.com")
-			|| href.startsWith("http://usatoday.com"))
+            || href.startsWith("usatoday.com")
+            || href.startsWith("https://usatoday.com")
+            || href.startsWith("http://usatoday.com"))
 		{
 			insideDomain(url.getURL());
 			return true;
@@ -149,7 +147,7 @@ public class MyCrawler extends WebCrawler {
 		} else if ('a' == curContentType.charAt(0)) {
 			++(myCrawlStat.applicationPdf);
 			return "application/pdf";
-		} else if ('g' == curContentType.charAt(0)) {
+		} else if ('g' == curContentType.charAt(6)) {
 			++(myCrawlStat.imageGif);
 			return "image/gif";
 		} else if ('j' == curContentType.charAt(6)) {
